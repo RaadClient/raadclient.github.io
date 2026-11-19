@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Manage your Raad account, Minecraft skin and cape.">
+  <title>Raad Account | Raad Client</title>
+  <link rel="icon" type="image/png" href="raad-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@400;700;900&family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#ed1c24;--bg:#080808;--panel:#111;--muted:#a0a0a0;--line:rgba(255,255,255,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:#fff;font-family:Inter,sans-serif;line-height:1.65;min-height:100vh}
+    body[data-language=fa]{font-family:Vazirmatn,sans-serif}
+    body[data-language=es]{font-family:Montserrat,sans-serif}
+    body[data-language=fr]{font-family:Lato,sans-serif}
+    body[data-language=it]{font-family:Poppins,sans-serif}
+    body[data-language=de]{font-family:Roboto,sans-serif}
+    a{color:inherit;text-decoration:none}
+    button,input,select{font:inherit}
+    .container{width:min(1120px,91%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:#080808ed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:1px}
+    .brand img{width:43px;height:43px;object-fit:contain}
+    .brand span{color:var(--red)}
+    .navright{display:flex;align-items:center;gap:18px}
+    .back{color:#bbb;font-size:14px}.back:hover{color:var(--red)}
+    select{background:#151515;color:white;border:1px solid #333;border-radius:8px;padding:9px}
+    main{padding:55px 0 90px}
+    .intro{text-align:center;margin-bottom:35px}
+    .eyebrow{color:var(--red);font-size:12px;font-weight:900;letter-spacing:3px;text-transform:uppercase}
+    h1{font-size:clamp(32px,5vw,48px);line-height:1.2;margin:9px 0}
+    .intro p{color:var(--muted);max-width:650px;margin:auto}
+    .layout{display:grid;grid-template-columns: minmax(0,1fr) minmax(290px,.8fr);gap:22px;align-items:start}
+    .card{background:linear-gradient(145deg,#151515,#0d0d0d);border:1px solid var(--line);border-radius:16px;padding:26px}
+    .card h2{font-size:21px;margin-bottom:5px}
+    .sub{color:var(--muted);font-size:13px;margin-bottom:22px}
+    .tabs{display:flex;gap:8px;background:#090909;padding:5px;border-radius:10px;margin-bottom:22px}
+    .tab{flex:1;border:0;border-radius:7px;padding:10px;background:transparent;color:#aaa;cursor:pointer;font-weight:700}
+    .tab.active{background:var(--red);color:white}
+    .field{margin-bottom:15px}
+    label{display:block;font-size:13px;color:#ccc;margin-bottom:7px}
+    input[type=email],input[type=password],input[type=text]{width:100%;background:#090909;border:1px solid #333;color:#fff;border-radius:9px;padding:13px;outline:none}
+    input:focus{border-color:var(--red)}
+    .primary,.secondary{border:0;border-radius:9px;padding:13px 18px;font-weight:800;cursor:pointer;transition:.2s}
+    .primary{background:var(--red);color:#fff;width:100%;box-shadow:0 5px 22px #ed1c2428}
+    .primary:hover{background:#ff3038;transform:translateY(-1px)}
+    .secondary{background:#1a1a1a;color:#fff;border:1px solid #383838}
+    .secondary:hover{border-color:var(--red)}
+    .hint{font-size:12px;color:#888;margin-top:13px}
+    .status{display:none;padding:11px 13px;border-radius:9px;background:#171717;border:1px solid #333;color:#ddd;font-size:13px;margin-top:14px}
+    .status.show{display:block}
+    .profile-top{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+    .avatar{width:62px;height:62px;border-radius:13px;background:#201012;border:1px solid #542025;display:grid;place-items:center;color:var(--red);font-size:27px}
+    .plan{display:inline-block;color:#ff6b70;background:#ed1c2418;border:1px solid #ed1c2445;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:800;margin-top:4px}
+    .asset{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+    .asset-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+    .asset-head h3{font-size:16px}
+    .tag{font-size:10px;color:#aaa;border:1px solid #383838;border-radius:20px;padding:3px 8px}
+    .preview{height:160px;border-radius:12px;background:radial-gradient(ellipse at center,#281012,#0a0a0a 70%);border:1px dashed #4a292b;display:grid;place-items:center;overflow:hidden;margin-bottom:12px}
+    .preview img{max-width:100%;max-height:100%;object-fit:contain;image-rendering:pixelated}
+    .placeholder{text-align:center;color:#888;font-size:12px;padding:15px}
+    .placeholder b{display:block;color:#ddd;font-size:28px;margin-bottom:4px}
+    .upload-row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+    .file-label{display:inline-flex;align-items:center;justify-content:center;background:#1a1a1a;border:1px solid #383838;color:#fff;padding:10px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer}
+    .file-label:hover{border-color:var(--red)}
+    input[type=file]{display:none}
+    .file-name{font-size:11px;color:#888;overflow-wrap:anywhere}
+    .note{font-size:12px;color:#888;margin-top:10px}
+    .warning{margin-top:18px;border:1px solid #6b4d1c;background:#2a210f;color:#d9c28e;border-radius:10px;padding:13px;font-size:12px}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:#777;font-size:12px}
+    .foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    html[dir=rtl] body{text-align:right}
+    html[dir=rtl] .eyebrow{letter-spacing:0}
+    @media(max-width:800px){.layout{grid-template-columns:1fr}.nav{height:auto;min-height:70px}.card{padding:21px}}
+    @media(max-width:480px){.navright{gap:8px}.back{font-size:12px}.brand{font-size:14px}.brand img{width:36px;height:36px}.card{padding:17px}}
+  </style>
+</head>
+<body data-language="en">
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="raad-logo.png" alt="Raad logo"><span>RAAD CLIENT</span></a>
+    <div class="navright">
+      <a class="back" href="index.html" data-i18n="back">← Back to website</a>
+      <select id="languageSelect" aria-label="Language">
+        <option value="en">🇬🇧 English</option><option value="fa">🇮🇷 فارسی</option><option value="es">🇪🇸 Español</option><option value="fr">🇫🇷 Français</option><option value="it">🇮🇹 Italiano</option><option value="de">🇩🇪 Deutsch</option>
+      </select>
+    </div>
+  </div>
+</header>
+<main class="container">
+  <div class="intro">
+    <div class="eyebrow" data-i18n="eyebrow">YOUR RAAD ID</div>
+    <h1 data-i18n="title">Your account. Your identity.</h1>
+    <p data-i18n="intro">Create your Raad account and manage the skin and cape used across the Raad experience.</p>
+  </div>
+  <div class="layout">
+    <section class="card">
+      <h2 data-i18n="accessTitle">Access your account</h2>
+      <p class="sub" data-i18n="accessSub">Sign in or create a new Raad account.</p>
+      <div class="tabs">
+        <button class="tab active" id="loginTab" type="button" data-i18n="login">Log in</button>
+        <button class="tab" id="registerTab" type="button" data-i18n="register">Create account</button>
+      </div>
+      <form id="accountForm">
+        <div class="field" id="usernameField" hidden>
+          <label for="username" data-i18n="username">Username</label>
+          <input id="username" type="text" autocomplete="username" minlength="3" maxlength="16" placeholder="Your username">
+        </div>
+        <div class="field">
+          <label for="email" data-i18n="email">Email address</label>
+          <input id="email" type="email" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="password" data-i18n="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password" minlength="8" required placeholder="At least 8 characters">
+        </div>
+        <button class="primary" type="submit" id="submitButton" data-i18n="login">Log in</button>
+      </form>
+      <div class="status" id="formStatus" role="status"></div>
+      <p class="hint" data-i18n="secureHint">Your password should only be sent to the secure Raad server. This demo page does not transmit or save account credentials.</p>
+    </section>
+
+    <section class="card">
+      <div class="profile-top">
+        <div class="avatar">R</div>
+        <div><h2 data-i18n="customizeTitle">Skin &amp; Cape</h2><span class="plan" data-i18n="plan">Raad account · Plan shown after login</span></div>
+      </div>
+      <p class="sub" data-i18n="customizeSub">Choose the appearance used by Raad Client.</p>
+
+      <div class="asset">
+        <div class="asset-head"><h3 data-i18n="skinTitle">Minecraft skin</h3><span class="tag" data-i18n="raadOnly">RAAD ONLY</span></div>
+        <div class="preview" id="skinPreview"><div class="placeholder"><b>▦</b><span data-i18n="skinEmpty">Your skin preview will appear here</span></div></div>
+        <div class="upload-row">
+          <label class="file-label" for="skinFile" data-i18n="chooseSkin">Choose skin PNG</label>
+          <input id="skinFile" type="file" accept="image/png">
+          <span class="file-name" id="skinName" data-i18n="noFile">No file selected</span>
+        </div>
+        <p class="note" data-i18n="skinNote">PNG texture only. Use a Minecraft skin file (64×64 or supported legacy format).</p>
+      </div>
+
+      <div class="asset">
+        <div class="asset-head"><h3 data-i18n="capeTitle">Raad cape</h3><span class="tag" data-i18n="raadOnly">RAAD ONLY</span></div>
+        <div class="preview" id="capePreview"><div class="placeholder"><b>◇</b><span data-i18n="capeEmpty">Your cape preview will appear here</span></div></div>
+        <div class="upload-row">
+          <label class="file-label" for="capeFile" data-i18n="chooseCape">Choose cape PNG</label>
+          <input id="capeFile" type="file" accept="image/png">
+          <span class="file-name" id="capeName" data-i18n="noFile">No file selected</span>
+        </div>
+        <p class="note" data-i18n="capeNote">PNG image. The final supported cape dimensions will be validated by the Raad server.</p>
+      </div>
+      <div class="warning" data-i18n="backendNote">Preview mode: files are previewed only in this browser. Saving to your Raad account and showing them in-game will be enabled after the secure backend and game integration are built.</div>
+    </section>
+  </div>
+</main>
+<footer><div class="container foot"><span>© 2026 Raad Client</span><span data-i18n="footer">Account system · In development</span></div></footer>
+<script>
+const translations={
+en:{back:"← Back to website",eyebrow:"YOUR RAAD ID",title:"Your account. Your identity.",intro:"Create your Raad account and manage the skin and cape used across the Raad experience.",accessTitle:"Access your account",accessSub:"Sign in or create a new Raad account.",login:"Log in",register:"Create account",username:"Username",email:"Email address",password:"Password",secureHint:"Your password should only be sent to the secure Raad server. This demo page does not transmit or save account credentials.",customizeTitle:"Skin & Cape",plan:"Raad account · Plan shown after login",customizeSub:"Choose the appearance used by Raad Client.",skinTitle:"Minecraft skin",raadOnly:"RAAD ONLY",skinEmpty:"Your skin preview will appear here",chooseSkin:"Choose skin PNG",noFile:"No file selected",skinNote:"PNG texture only. Use a Minecraft skin file (64×64 or supported legacy format).",capeTitle:"Raad cape",capeEmpty:"Your cape preview will appear here",chooseCape:"Choose cape PNG",capeNote:"PNG image. The final supported cape dimensions will be validated by the Raad server.",backendNote:"Preview mode: files are previewed only in this browser. Saving to your Raad account and showing them in-game will be enabled after the secure backend and game integration are built.",footer:"Account system · In development",loginDemo:"This is the account interface prototype. Registration and login will work after the secure backend is connected.",registerDemo:"The registration form is ready for backend integration. No account has been created."},
+fa:{back:"بازگشت به وب‌سایت ←",eyebrow:"شناسه رعد تو",title:"حساب تو؛ هویت تو.",intro:"حساب رعد خودت را بساز و اسکین و کیپی را که در تجربه رعد استفاده می‌کنی مدیریت کن.",accessTitle:"ورود به حساب",accessSub:"وارد حساب شو یا یک حساب جدید رعد بساز.",login:"ورود",register:"ساخت حساب",username:"نام کاربری",email:"آدرس ایمیل",password:"رمز عبور",secureHint:"رمز عبور باید فقط به سرور امن رعد ارسال شود. این صفحه آزمایشی اطلاعات ورود را ارسال یا ذخیره نمی‌کند.",customizeTitle:"اسکین و کیپ",plan:"حساب رعد · نوع اشتراک پس از ورود نمایش داده می‌شود",customizeSub:"ظاهر مورد استفاده در Raad Client را انتخاب کن.",skinTitle:"اسکین ماینکرفت",raadOnly:"فقط رعد",skinEmpty:"پیش‌نمایش اسکین اینجا نمایش داده می‌شود",chooseSkin:"انتخاب فایل PNG اسکین",noFile:"فایلی انتخاب نشده",skinNote:"فقط تصویر PNG؛ فایل اسکین ماینکرفت با اندازه ۶۴×۶۴ یا قالب قدیمی پشتیبانی‌شده.",capeTitle:"کیپ رعد",capeEmpty:"پیش‌نمایش کیپ اینجا نمایش داده می‌شود",chooseCape:"انتخاب فایل PNG کیپ",capeNote:"تصویر PNG. ابعاد نهایی مورد پشتیبانی توسط سرور رعد بررسی خواهد شد.",backendNote:"حالت پیش‌نمایش: فایل‌ها فقط در همین مرورگر نمایش داده می‌شوند. ذخیره در حساب رعد و نمایش داخل بازی پس از ساخت Backend امن و اتصال به کلاینت فعال می‌شود.",footer:"سیستم حساب کاربری · در حال توسعه",loginDemo:"این نسخه، پیش‌نمایش رابط حساب کاربری است. ورود و ثبت‌نام پس از اتصال Backend امن فعال می‌شوند.",registerDemo:"فرم ثبت‌نام برای اتصال به Backend آماده است؛ هنوز هیچ حسابی ساخته نشده است."},
+es:{back:"← Volver al sitio",eyebrow:"TU ID DE RAAD",title:"Tu cuenta. Tu identidad.",intro:"Crea tu cuenta Raad y administra tu skin y capa.",accessTitle:"Accede a tu cuenta",accessSub:"Inicia sesión o crea una cuenta Raad.",login:"Iniciar sesión",register:"Crear cuenta",username:"Nombre de usuario",email:"Correo electrónico",password:"Contraseña",secureHint:"Esta página de demostración no envía ni guarda credenciales.",customizeTitle:"Skin y capa",plan:"Cuenta Raad · Plan tras iniciar sesión",customizeSub:"Elige la apariencia de Raad Client.",skinTitle:"Skin de Minecraft",raadOnly:"SOLO RAAD",skinEmpty:"La vista previa aparecerá aquí",chooseSkin:"Elegir skin PNG",noFile:"Ningún archivo",skinNote:"Solo PNG; textura de skin de Minecraft.",capeTitle:"Capa Raad",capeEmpty:"La vista previa de la capa aparecerá aquí",chooseCape:"Elegir capa PNG",capeNote:"Imagen PNG; el servidor validará las dimensiones.",backendNote:"Vista previa local solamente. Guardar en la cuenta y mostrar en el juego requiere el backend y la integración.",footer:"Sistema de cuentas · En desarrollo",loginDemo:"Prototipo de interfaz. El acceso funcionará al conectar el backend seguro.",registerDemo:"Formulario listo para integrar el backend; aún no se ha creado ninguna cuenta."},
+fr:{back:"← Retour au site",eyebrow:"VOTRE ID RAAD",title:"Votre compte. Votre identité.",intro:"Créez votre compte Raad et gérez votre skin et votre cape.",accessTitle:"Accéder au compte",accessSub:"Connectez-vous ou créez un compte Raad.",login:"Connexion",register:"Créer un compte",username:"Nom d’utilisateur",email:"Adresse e-mail",password:"Mot de passe",secureHint:"Cette page de démonstration n’envoie ni n’enregistre les identifiants.",customizeTitle:"Skin et cape",plan:"Compte Raad · Offre après connexion",customizeSub:"Choisissez l’apparence de Raad Client.",skinTitle:"Skin Minecraft",raadOnly:"RAAD UNIQUEMENT",skinEmpty:"L’aperçu du skin apparaîtra ici",chooseSkin:"Choisir un skin PNG",noFile:"Aucun fichier",skinNote:"PNG uniquement ; texture de skin Minecraft.",capeTitle:"Cape Raad",capeEmpty:"L’aperçu de la cape apparaîtra ici",chooseCape:"Choisir une cape PNG",capeNote:"Image PNG ; le serveur vérifiera les dimensions.",backendNote:"Aperçu local uniquement. L’enregistrement et l’affichage en jeu nécessitent le backend et l’intégration.",footer:"Système de compte · En développement",loginDemo:"Prototype d’interface. La connexion sera disponible après l’intégration du backend sécurisé.",registerDemo:"Formulaire prêt pour le backend ; aucun compte n’a été créé."},
+it:{back:"← Torna al sito",eyebrow:"IL TUO ID RAAD",title:"Il tuo account. La tua identità.",intro:"Crea il tuo account Raad e gestisci skin e mantello.",accessTitle:"Accedi al tuo account",accessSub:"Accedi o crea un nuovo account Raad.",login:"Accedi",register:"Crea account",username:"Nome utente",email:"Indirizzo email",password:"Password",secureHint:"Questa pagina demo non invia né salva le credenziali.",customizeTitle:"Skin e mantello",plan:"Account Raad · Piano dopo l’accesso",customizeSub:"Scegli l’aspetto usato da Raad Client.",skinTitle:"Skin Minecraft",raadOnly:"SOLO RAAD",skinEmpty:"L’anteprima apparirà qui",chooseSkin:"Scegli skin PNG",noFile:"Nessun file",skinNote:"Solo PNG; texture skin di Minecraft.",capeTitle:"Mantello Raad",capeEmpty:"L’anteprima del mantello apparirà qui",chooseCape:"Scegli mantello PNG",capeNote:"Immagine PNG; il server verificherà le dimensioni.",backendNote:"Solo anteprima locale. Il salvataggio e la visualizzazione in gioco richiedono backend e integrazione.",footer:"Sistema account · In sviluppo",loginDemo:"Prototipo dell’interfaccia. L’accesso sarà attivo dopo il collegamento del backend sicuro.",registerDemo:"Modulo pronto per il backend; non è stato creato alcun account."},
+de:{back:"← Zurück zur Website",eyebrow:"DEINE RAAD-ID",title:"Dein Konto. Deine Identität.",intro:"Erstelle dein Raad-Konto und verwalte Skin und Cape.",accessTitle:"Auf dein Konto zugreifen",accessSub:"Melde dich an oder erstelle ein Raad-Konto.",login:"Anmelden",register:"Konto erstellen",username:"Benutzername",email:"E-Mail-Adresse",password:"Passwort",secureHint:"Diese Demoseite überträgt oder speichert keine Zugangsdaten.",customizeTitle:"Skin & Cape",plan:"Raad-Konto · Tarif nach Anmeldung",customizeSub:"Wähle das Aussehen für Raad Client.",skinTitle:"Minecraft-Skin",raadOnly:"NUR RAAD",skinEmpty:"Die Vorschau erscheint hier",chooseSkin:"Skin-PNG auswählen",noFile:"Keine Datei ausgewählt",skinNote:"Nur PNG; Minecraft-Skin-Textur.",capeTitle:"Raad-Cape",capeEmpty:"Die Cape-Vorschau erscheint hier",chooseCape:"Cape-PNG auswählen",capeNote:"PNG-Bild; der Server prüft die unterstützten Maße.",backendNote:"Nur lokale Vorschau. Speichern und Anzeige im Spiel benötigen Backend und Spielintegration.",footer:"Kontosystem · In Entwicklung",loginDemo:"Prototyp der Kontooberfläche. Anmeldung folgt nach Verbindung des sicheren Backends.",registerDemo:"Formular bereit für Backend-Integration; es wurde noch kein Konto erstellt."}
+};
+const lang=document.getElementById('languageSelect');
+function setLanguage(code){const d=translations[code]||translations.en;document.documentElement.lang=code;document.documentElement.dir=code==='fa'?'rtl':'ltr';document.body.dataset.language=code;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(d[k])el.textContent=d[k]});lang.value=code;try{localStorage.setItem('raad-language',code)}catch(e){}}
+lang.addEventListener('change',e=>setLanguage(e.target.value));
+try{setLanguage(localStorage.getItem('raad-language')||'en')}catch(e){setLanguage('en')}
+let mode='login';
+const loginTab=document.getElementById('loginTab'),registerTab=document.getElementById('registerTab'),usernameField=document.getElementById('usernameField'),password=document.getElementById('password'),submit=document.getElementById('submitButton'),status=document.getElementById('formStatus');
+function setMode(next){mode=next;loginTab.classList.toggle('active',mode==='login');registerTab.classList.toggle('active',mode==='register');usernameField.hidden=mode!=='register';document.getElementById('username').required=mode==='register';password.autocomplete=mode==='login'?'current-password':'new-password';submit.textContent=translations[lang.value][mode];status.classList.remove('show')}
+loginTab.addEventListener('click',()=>setMode('login'));registerTab.addEventListener('click',()=>setMode('register'));
+document.getElementById('accountForm').addEventListener('submit',e=>{e.preventDefault();status.textContent=translations[lang.value][mode==='login'?'loginDemo':'registerDemo'];status.classList.add('show')});
+function previewFile(input,preview,nameId,kind){const file=input.files&&input.files[0];if(!file)return;const name=document.getElementById(nameId);if(file.type!=='image/png'){name.textContent='PNG only';input.value='';return}if(file.size>2*1024*1024){name.textContent='Max 2 MB';input.value='';return}const url=URL.createObjectURL(file);const img=new Image();img.onload=()=>{const box=document.getElementById(preview);box.innerHTML='';box.appendChild(img);name.textContent=file.name;};img.onerror=()=>{name.textContent='Invalid image';URL.revokeObjectURL(url)};img.src=url}
+document.getElementById('skinFile').addEventListener('change',e=>previewFile(e.target,'skinPreview','skinName','skin'));
+document.getElementById('capeFile').addEventListener('change',e=>previewFile(e.target,'capePreview','capeName','cape'));
+</script>
+</body>
+</html>
