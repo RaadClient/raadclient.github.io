@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Explore the planned features of Raad Client, a Minecraft launcher and PvP client project.">
+  <title>Features | Raad Client</title>
+  <link rel="icon" type="image/png" href="raad-logo.png">
+  <link rel="apple-touch-icon" href="raad-logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@400;700;900&family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--red:#ed1c24;--bg:#080808;--surface:#111;--muted:#a0a0a0;--line:rgba(255,255,255,.09)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:#fff;font-family:Inter,sans-serif;line-height:1.7}
+    body[data-language="fa"]{font-family:Vazirmatn,sans-serif}
+    body[data-language="es"]{font-family:Montserrat,sans-serif}
+    body[data-language="fr"]{font-family:Lato,sans-serif}
+    body[data-language="it"]{font-family:Poppins,sans-serif}
+    body[data-language="de"]{font-family:Roboto,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1160px,90%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(8,8,8,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .navbar{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900;letter-spacing:1px}
+    .brand img{width:46px;height:46px;object-fit:contain;border-radius:8px}
+    .brand-name span{color:var(--red)}
+    nav{display:flex;align-items:center;gap:25px}
+    nav a{color:#c7c7c7;font-size:14px;font-weight:600;transition:.2s}
+    nav a:hover,nav a.active{color:var(--red)}
+    .actions{display:flex;align-items:center;gap:10px}
+    select{background:#151515;color:#fff;border:1px solid #333;border-radius:8px;padding:9px 10px;font:inherit;font-size:13px}
+    .menu{display:none;background:#151515;color:white;border:1px solid #333;border-radius:8px;padding:7px 11px;font-size:19px}
+    .hero{position:relative;overflow:hidden;padding:105px 0 90px;background:radial-gradient(ellipse at 75% 40%,#b4000a35,transparent 43%),linear-gradient(120deg,#080808,#130607)}
+    .hero:after{content:"";position:absolute;width:440px;height:440px;border:1px solid #ed1c2425;border-radius:50%;right:-130px;top:10px;box-shadow:0 0 0 50px #ed1c2408,0 0 0 100px #ed1c2405}
+    .hero-inner{position:relative;z-index:1;max-width:800px}
+    .eyebrow{color:var(--red);font-size:12px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.12;font-weight:900;letter-spacing:-2px;margin-bottom:20px}
+    h1 span{color:var(--red)}
+    .intro{max-width:680px;color:#aaa;font-size:17px}
+    .status{display:inline-flex;align-items:center;gap:8px;margin-top:27px;padding:8px 13px;border:1px solid #ed1c2455;background:#ed1c2412;border-radius:999px;color:#ff777c;font-size:12px;font-weight:700}
+    .status i{width:7px;height:7px;border-radius:50%;background:var(--red);display:inline-block}
+    main{padding:78px 0 100px}
+    .section-head{text-align:center;margin-bottom:42px}
+    .section-head h2{font-size:clamp(28px,4vw,42px);font-weight:900}
+    .section-head p{color:var(--muted);margin-top:10px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:linear-gradient(145deg,#161616,#0d0d0d);border:1px solid var(--line);border-radius:15px;padding:29px;min-height:225px;transition:.25s}
+    .card:hover{transform:translateY(-5px);border-color:#ed1c2488}
+    .icon{width:48px;height:48px;display:grid;place-items:center;background:#ed1c241c;color:var(--red);border-radius:12px;font-size:23px;margin-bottom:19px}
+    .card h3{font-size:19px;margin-bottom:9px}
+    .card p{font-size:14px;color:var(--muted)}
+    .bottom{margin-top:65px;padding:40px;border:1px solid #ed1c243d;border-radius:16px;background:linear-gradient(110deg,#ed1c2417,transparent 70%),#101010;text-align:center}
+    .bottom h2{font-size:clamp(25px,4vw,36px);margin-bottom:10px}
+    .bottom p{color:var(--muted);max-width:650px;margin:0 auto 22px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 23px;border-radius:8px;background:var(--red);font-size:13px;font-weight:800;transition:.2s}
+    .btn:hover{background:#ff3038;transform:translateY(-2px)}
+    footer{padding:30px 0;border-top:1px solid var(--line);background:#060606}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .copy{font-size:13px;color:#777}
+    .footlinks{display:flex;gap:20px;color:#999;font-size:13px}
+    .footlinks a:hover{color:var(--red)}
+    html[dir="rtl"] body{text-align:right}
+    html[dir="rtl"] .eyebrow{letter-spacing:0}
+    html[dir="rtl"] h1{letter-spacing:0;line-height:1.4}
+    html[dir="rtl"] .hero:after{right:auto;left:-130px}
+    @media(max-width:850px){
+      nav{display:none;position:absolute;top:78px;left:0;right:0;padding:22px 5%;background:#0c0c0c;border-bottom:1px solid #333;flex-direction:column;align-items:flex-start}
+      nav.open{display:flex}.menu{display:block}.grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:560px){
+      .brand{font-size:16px}.brand img{width:39px;height:39px}select{max-width:112px;font-size:11px}
+      .hero{padding:78px 0}.intro{font-size:15px}main{padding:60px 0}
+      .grid{grid-template-columns:1fr}.card{min-height:0}.bottom{padding:30px 20px}
+      .foot{flex-direction:column;text-align:center}.footlinks{justify-content:center;flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body data-language="en">
+<header>
+  <div class="container navbar">
+    <a class="brand" href="index.html" aria-label="Raad Client home">
+      <img src="raad-logo.png" alt="Raad Client logo">
+      <span class="brand-name">RAAD<span> CLIENT</span></span>
+    </a>
+    <nav id="nav">
+      <a href="index.html" data-i18n="home">Home</a>
+      <a class="active" href="features.html" data-i18n="features">Features</a>
+      <a href="download.html" data-i18n="download">Download</a>
+      <a href="about.html" data-i18n="about">About</a>
+    </nav>
+    <div class="actions">
+      <select id="language" aria-label="Select language">
+        <option value="en">🇬🇧 English</option><option value="fa">🇮🇷 فارسی</option>
+        <option value="es">🇪🇸 Español</option><option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option><option value="de">🇩🇪 Deutsch</option>
+      </select>
+      <button class="menu" id="menu" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="eyebrow" data-i18n="eyebrow">BUILT AROUND YOUR GAME</div>
+      <h1 data-i18n="title">RAAD CLIENT <span>FEATURES</span></h1>
+      <p class="intro" data-i18n="intro">Explore the ideas and features planned for Raad Client: a Minecraft experience focused on competitive PvP, customization and flexibility.</p>
+      <div class="status"><i></i><span data-i18n="status">Project in development — features may change</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+  <div class="section-head">
+    <div class="eyebrow" data-i18n="subeyebrow">THE RAAD EXPERIENCE</div>
+    <h2 data-i18n="heading">Designed for More Control</h2>
+    <p data-i18n="subheading">A look at the features planned for the Raad Client project.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card"><div class="icon">⚡</div><h3 data-i18n="f1t">Performance Focus</h3><p data-i18n="f1p">A lightweight experience is a key goal, with attention to smooth gameplay and efficient resource use.</p></article>
+    <article class="card"><div class="icon">⚔</div><h3 data-i18n="f2t">PvP Client — 1.8.9</h3><p data-i18n="f2p">A dedicated client experience planned around the Minecraft 1.8.9 PvP community.</p></article>
+    <article class="card"><div class="icon">▦</div><h3 data-i18n="f3t">Custom HUD</h3><p data-i18n="f3p">A customizable heads-up display to help organize useful in-game information.</p></article>
+    <article class="card"><div class="icon">⌨</div><h3 data-i18n="f4t">PvP HUD Elements</h3><p data-i18n="f4p">Planned visual elements may include keystrokes, CPS, FPS and other helpful indicators.</p></article>
+    <article class="card"><div class="icon">🎨</div><h3 data-i18n="f5t">Customization</h3><p data-i18n="f5p">Options to personalize the interface and adjust supported client features.</p></article>
+    <article class="card"><div class="icon">◈</div><h3 data-i18n="f6t">Multi-Version Launcher</h3><p data-i18n="f6p">A launcher planned to support Vanilla, Forge and Fabric across multiple Minecraft versions.</p></article>
+    <article class="card"><div class="icon">☁</div><h3 data-i18n="f7t">Cloud Settings</h3><p data-i18n="f7p">Optional account-based settings synchronization is part of the project vision.</p></article>
+    <article class="card"><div class="icon">🧩</div><h3 data-i18n="f8t">Mod Support</h3><p data-i18n="f8p">A flexible setup designed with supported mods and client-side customization in mind.</p></article>
+    <article class="card"><div class="icon">🔒</div><h3 data-i18n="f9t">Account System</h3><p data-i18n="f9p">A planned account system with Free and Premium options and secure sign-in.</p></article>
+  </div>
+
+  <div class="bottom">
+    <h2 data-i18n="bottomTitle">Ready to explore Raad?</h2>
+    <p data-i18n="bottomText">Head back to the homepage to learn more about the project and follow its development.</p>
+    <a class="btn" href="index.html" data-i18n="bottomButton">BACK TO HOME</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container foot">
+    <a class="brand" href="index.html"><img src="raad-logo.png" alt="Raad Client logo"><span class="brand-name">RAAD<span> CLIENT</span></span></a>
+    <div class="copy" data-i18n="copyright">© 2026 Raad Client. All rights reserved.</div>
+    <div class="footlinks"><a href="index.html" data-i18n="home">Home</a><a href="features.html" data-i18n="features">Features</a><a href="about.html" data-i18n="about">About</a></div>
+  </div>
+</footer>
+
+<script>
+const translations={
+en:{home:"Home",features:"Features",download:"Download",about:"About",eyebrow:"BUILT AROUND YOUR GAME",title:'RAAD CLIENT <span>FEATURES</span>',intro:"Explore the ideas and features planned for Raad Client: a Minecraft experience focused on competitive PvP, customization and flexibility.",status:"Project in development — features may change",subeyebrow:"THE RAAD EXPERIENCE",heading:"Designed for More Control",subheading:"A look at the features planned for the Raad Client project.",f1t:"Performance Focus",f1p:"A lightweight experience is a key goal, with attention to smooth gameplay and efficient resource use.",f2t:"PvP Client — 1.8.9",f2p:"A dedicated client experience planned around the Minecraft 1.8.9 PvP community.",f3t:"Custom HUD",f3p:"A customizable heads-up display to help organize useful in-game information.",f4t:"PvP HUD Elements",f4p:"Planned visual elements may include keystrokes, CPS, FPS and other helpful indicators.",f5t:"Customization",f5p:"Options to personalize the interface and adjust supported client features.",f6t:"Multi-Version Launcher",f6p:"A launcher planned to support Vanilla, Forge and Fabric across multiple Minecraft versions.",f7t:"Cloud Settings",f7p:"Optional account-based settings synchronization is part of the project vision.",f8t:"Mod Support",f8p:"A flexible setup designed with supported mods and client-side customization in mind.",f9t:"Account System",f9p:"A planned account system with Free and Premium options and secure sign-in.",bottomTitle:"Ready to explore Raad?",bottomText:"Head back to the homepage to learn more about the project and follow its development.",bottomButton:"BACK TO HOME",copyright:"© 2026 Raad Client. All rights reserved."},
+fa:{home:"خانه",features:"امکانات",download:"دانلود",about:"درباره ما",eyebrow:"ساخته‌شده برای بازی تو",title:'امکانات <span>رعد کلاینت</span>',intro:"با ایده‌ها و قابلیت‌های برنامه‌ریزی‌شده برای رعد کلاینت آشنا شو؛ تجربه‌ای از ماینکرفت با تمرکز بر پی‌وی‌پی رقابتی، شخصی‌سازی و انعطاف‌پذیری.",status:"پروژه در حال توسعه است — امکانات ممکن است تغییر کنند",subeyebrow:"تجربه رعد",heading:"کنترل بیشتر، تجربه بهتر",subheading:"نگاهی به امکاناتی که برای پروژه رعد کلاینت در نظر گرفته شده‌اند.",f1t:"تمرکز بر عملکرد",f1p:"هدف اصلی، تجربه‌ای سبک با توجه به اجرای روان بازی و استفاده بهینه از منابع سیستم است.",f2t:"کلاینت پی‌وی‌پی — 1.8.9",f2p:"تجربه‌ای اختصاصی که برای جامعه پی‌وی‌پی ماینکرفت نسخه 1.8.9 برنامه‌ریزی شده است.",f3t:"HUD اختصاصی",f3p:"نمایشگر قابل شخصی‌سازی برای مرتب‌کردن اطلاعات کاربردی داخل بازی.",f4t:"ابزارهای HUD پی‌وی‌پی",f4p:"ابزارهای تصویری برنامه‌ریزی‌شده می‌توانند شامل کی‌استروکس، CPS، FPS و نشانگرهای کاربردی دیگر باشند.",f5t:"شخصی‌سازی",f5p:"امکان شخصی‌سازی رابط کاربری و تنظیم قابلیت‌های پشتیبانی‌شده کلاینت.",f6t:"لانچر چندنسخه‌ای",f6p:"لانچری با هدف پشتیبانی از Vanilla، Forge و Fabric در نسخه‌های مختلف ماینکرفت.",f7t:"تنظیمات ابری",f7p:"همگام‌سازی تنظیمات از طریق حساب کاربری بخشی از چشم‌انداز پروژه است.",f8t:"پشتیبانی از مادها",f8p:"ساختاری انعطاف‌پذیر با در نظر گرفتن مادهای پشتیبانی‌شده و شخصی‌سازی سمت کاربر.",f9t:"سیستم حساب کاربری",f9p:"سیستم حساب کاربری برنامه‌ریزی‌شده با گزینه‌های Free و Premium و ورود امن.",bottomTitle:"آماده‌ای رعد را بیشتر بشناسی؟",bottomText:"برای آشنایی بیشتر با پروژه و دنبال‌کردن روند توسعه، به صفحه اصلی برگرد.",bottomButton:"بازگشت به صفحه اصلی",copyright:"© ۲۰۲۶ رعد کلاینت. تمامی حقوق محفوظ است."},
+es:{home:"Inicio",features:"Funciones",download:"Descargar",about:"Acerca de",eyebrow:"DISEÑADO PARA TU JUEGO",title:'FUNCIONES DE <span>RAAD CLIENT</span>',intro:"Descubre las ideas y funciones previstas para Raad Client: una experiencia de Minecraft centrada en el PvP competitivo, la personalización y la flexibilidad.",status:"Proyecto en desarrollo — las funciones pueden cambiar",subeyebrow:"LA EXPERIENCIA RAAD",heading:"Diseñado para tener más control",subheading:"Un vistazo a las funciones previstas para Raad Client.",f1t:"Enfoque en el rendimiento",f1p:"El objetivo es una experiencia ligera, fluida y con un uso eficiente de los recursos.",f2t:"Cliente PvP — 1.8.9",f2p:"Una experiencia dedicada a la comunidad PvP de Minecraft 1.8.9.",f3t:"HUD personalizado",f3p:"Una interfaz personalizable para organizar información útil del juego.",f4t:"Elementos HUD para PvP",f4p:"Podría incluir teclas, CPS, FPS y otros indicadores útiles.",f5t:"Personalización",f5p:"Opciones para personalizar la interfaz y ajustar las funciones compatibles.",f6t:"Launcher multiversión",f6p:"Un launcher previsto para admitir Vanilla, Forge y Fabric en varias versiones.",f7t:"Ajustes en la nube",f7p:"La sincronización de ajustes mediante cuenta forma parte de la visión del proyecto.",f8t:"Compatibilidad con mods",f8p:"Una configuración flexible que contempla mods compatibles y personalización del cliente.",f9t:"Sistema de cuentas",f9p:"Un sistema de cuentas previsto con opciones Free y Premium e inicio de sesión seguro.",bottomTitle:"¿Quieres conocer más sobre Raad?",bottomText:"Vuelve a la página principal para conocer el proyecto y seguir su desarrollo.",bottomButton:"VOLVER AL INICIO",copyright:"© 2026 Raad Client. Todos los derechos reservados."},
+fr:{home:"Accueil",features:"Fonctionnalités",download:"Télécharger",about:"À propos",eyebrow:"CONÇU AUTOUR DE VOTRE JEU",title:'FONCTIONNALITÉS <span>RAAD CLIENT</span>',intro:"Découvrez les idées et fonctionnalités prévues pour Raad Client : une expérience Minecraft axée sur le PvP compétitif, la personnalisation et la flexibilité.",status:"Projet en développement — les fonctionnalités peuvent changer",subeyebrow:"L’EXPÉRIENCE RAAD",heading:"Conçu pour plus de contrôle",subheading:"Aperçu des fonctionnalités prévues pour Raad Client.",f1t:"Priorité aux performances",f1p:"L’objectif est une expérience légère, fluide et économe en ressources.",f2t:"Client PvP — 1.8.9",f2p:"Une expérience dédiée à la communauté PvP de Minecraft 1.8.9.",f3t:"HUD personnalisé",f3p:"Un affichage personnalisable pour organiser les informations utiles en jeu.",f4t:"Éléments HUD PvP",f4p:"Des éléments prévus peuvent inclure les touches, le CPS, le FPS et d’autres indicateurs.",f5t:"Personnalisation",f5p:"Des options pour personnaliser l’interface et régler les fonctions prises en charge.",f6t:"Launcher multiversion",f6p:"Un launcher prévu pour prendre en charge Vanilla, Forge et Fabric sur plusieurs versions.",f7t:"Paramètres cloud",f7p:"La synchronisation des paramètres via un compte fait partie de la vision du projet.",f8t:"Prise en charge des mods",f8p:"Une configuration flexible pensée pour les mods pris en charge et la personnalisation côté client.",f9t:"Système de compte",f9p:"Un système de compte prévu avec options Free et Premium et connexion sécurisée.",bottomTitle:"Envie d’en savoir plus sur Raad ?",bottomText:"Retournez à l’accueil pour découvrir le projet et suivre son développement.",bottomButton:"RETOUR À L’ACCUEIL",copyright:"© 2026 Raad Client. Tous droits réservés."},
+it:{home:"Home",features:"Funzionalità",download:"Download",about:"Chi siamo",eyebrow:"CREATO INTORNO AL TUO GIOCO",title:'FUNZIONALITÀ <span>RAAD CLIENT</span>',intro:"Scopri le idee e le funzionalità previste per Raad Client: un'esperienza Minecraft incentrata su PvP competitivo, personalizzazione e flessibilità.",status:"Progetto in sviluppo — le funzionalità possono cambiare",subeyebrow:"L’ESPERIENZA RAAD",heading:"Progettato per avere più controllo",subheading:"Uno sguardo alle funzionalità previste per Raad Client.",f1t:"Attenzione alle prestazioni",f1p:"L'obiettivo è un'esperienza leggera, fluida e con uso efficiente delle risorse.",f2t:"Client PvP — 1.8.9",f2p:"Un'esperienza dedicata alla community PvP di Minecraft 1.8.9.",f3t:"HUD personalizzato",f3p:"Un'interfaccia personalizzabile per organizzare le informazioni utili nel gioco.",f4t:"Elementi HUD PvP",f4p:"Gli elementi previsti possono includere tasti, CPS, FPS e altri indicatori utili.",f5t:"Personalizzazione",f5p:"Opzioni per personalizzare l'interfaccia e regolare le funzioni supportate.",f6t:"Launcher multiversione",f6p:"Un launcher progettato per supportare Vanilla, Forge e Fabric in più versioni.",f7t:"Impostazioni cloud",f7p:"La sincronizzazione delle impostazioni tramite account fa parte della visione del progetto.",f8t:"Supporto mod",f8p:"Una configurazione flessibile pensata per le mod supportate e la personalizzazione client-side.",f9t:"Sistema account",f9p:"Un sistema account previsto con opzioni Free e Premium e accesso sicuro.",bottomTitle:"Vuoi scoprire di più su Raad?",bottomText:"Torna alla pagina iniziale per conoscere il progetto e seguirne lo sviluppo.",bottomButton:"TORNA ALLA HOME",copyright:"© 2026 Raad Client. Tutti i diritti riservati."},
+de:{home:"Startseite",features:"Funktionen",download:"Download",about:"Über uns",eyebrow:"FÜR DEIN SPIEL ENTWICKELT",title:'RAAD CLIENT <span>FUNKTIONEN</span>',intro:"Entdecke die geplanten Ideen und Funktionen von Raad Client: ein Minecraft-Erlebnis mit Fokus auf kompetitives PvP, Anpassung und Flexibilität.",status:"Projekt in Entwicklung — Funktionen können sich ändern",subeyebrow:"DAS RAAD-ERLEBNIS",heading:"Für mehr Kontrolle entwickelt",subheading:"Ein Überblick über die für Raad Client geplanten Funktionen.",f1t:"Leistungsorientiert",f1p:"Ziel ist ein schlankes und flüssiges Spielerlebnis mit effizienter Ressourcennutzung.",f2t:"PvP-Client — 1.8.9",f2p:"Ein spezielles Client-Erlebnis für die Minecraft-1.8.9-PvP-Community.",f3t:"Eigenes HUD",f3p:"Eine anpassbare Anzeige zur Organisation nützlicher Spielinformationen.",f4t:"PvP-HUD-Elemente",f4p:"Geplante Elemente können Tastenanzeigen, CPS, FPS und weitere Hinweise umfassen.",f5t:"Anpassung",f5p:"Optionen zur Personalisierung der Oberfläche und unterstützter Client-Funktionen.",f6t:"Launcher für mehrere Versionen",f6p:"Ein Launcher mit geplantem Support für Vanilla, Forge und Fabric in mehreren Versionen.",f7t:"Cloud-Einstellungen",f7p:"Die Synchronisierung von Einstellungen über ein Konto gehört zur Projektvision.",f8t:"Mod-Unterstützung",f8p:"Ein flexibles Setup mit Blick auf unterstützte Mods und clientseitige Anpassungen.",f9t:"Kontosystem",f9p:"Ein geplantes Kontosystem mit Free- und Premium-Optionen und sicherer Anmeldung.",bottomTitle:"Möchtest du mehr über Raad erfahren?",bottomText:"Kehre zur Startseite zurück, um mehr über das Projekt zu erfahren und seine Entwicklung zu verfolgen.",bottomButton:"ZURÜCK ZUR STARTSEITE",copyright:"© 2026 Raad Client. Alle Rechte vorbehalten."}
+};
+const select=document.getElementById("language"),nav=document.getElementById("nav");
+function setLanguage(lang){
+ const code=translations[lang]?lang:"en",dict=translations[code];
+ document.documentElement.lang=code;document.documentElement.dir=code==="fa"?"rtl":"ltr";document.body.dataset.language=code;
+ document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(dict[key]!==undefined)el.innerHTML=dict[key]});
+ select.value=code;try{localStorage.setItem("raad-language",code)}catch(e){}
+}
+select.addEventListener("change",e=>setLanguage(e.target.value));
+document.getElementById("menu").addEventListener("click",()=>nav.classList.toggle("open"));
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+let saved="en";try{saved=localStorage.getItem("raad-language")||"en"}catch(e){}setLanguage(saved);
+</script>
+</body>
+</html>
