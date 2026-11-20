@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Learn about Raad Client, its goals, values and vision for Minecraft PvP.">
+  <title>About Us | Raad Client</title>
+  <link rel="icon" type="image/png" href="raad-logo.png">
+  <link rel="apple-touch-icon" href="raad-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@400;700;900&family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#ed1c24;--bg:#080808;--surface:#111;--muted:#a0a0a0;--border:rgba(255,255,255,.09)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:#fff;font-family:Inter,sans-serif;line-height:1.7;overflow-x:hidden}
+    body[data-language="fa"]{font-family:Vazirmatn,sans-serif}
+    body[data-language="es"]{font-family:Montserrat,sans-serif}
+    body[data-language="fr"]{font-family:Lato,sans-serif}
+    body[data-language="it"]{font-family:Poppins,sans-serif}
+    body[data-language="de"]{font-family:Roboto,sans-serif}
+    a{color:inherit;text-decoration:none}
+    button,select{font:inherit}
+    .container{width:min(1160px,90%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(8,8,8,.92);backdrop-filter:blur(15px);border-bottom:1px solid var(--border)}
+    .navbar{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:900;letter-spacing:1px}
+    .brand img{width:46px;height:46px;object-fit:contain;border-radius:8px}
+    .brand-name span{color:var(--red)}
+    .nav-links{display:flex;align-items:center;gap:25px}
+    .nav-links a{color:#c7c7c7;font-size:14px;font-weight:600;transition:.2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--red)}
+    .nav-actions{display:flex;align-items:center;gap:12px}
+    .language-select{background:#151515;color:#fff;border:1px solid #333;border-radius:8px;padding:9px 10px;font-size:13px}
+    .menu-button{display:none;color:#fff;background:transparent;border:1px solid #333;border-radius:8px;padding:7px 11px;font-size:20px;cursor:pointer}
+    .hero{position:relative;overflow:hidden;padding:105px 0 100px;background:radial-gradient(ellipse at 78% 40%,#b4000a35,transparent 43%),linear-gradient(120deg,#080808 35%,#120607);border-bottom:1px solid var(--border)}
+    .hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ed1c2428;border-radius:50%;right:-100px;top:40px;box-shadow:0 0 0 45px #ed1c2408,0 0 0 90px #ed1c2405}
+    .hero-content{position:relative;z-index:1;max-width:800px}
+    .eyebrow{color:var(--red);font-size:13px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:15px}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.12;font-weight:900;letter-spacing:-2px;margin-bottom:22px}
+    h1 span,.accent{color:var(--red)}
+    .lead{max-width:690px;color:#aaa;font-size:18px}
+    section{padding:85px 0}
+    .section-heading{text-align:center;margin:0 auto 45px;max-width:720px}
+    .section-heading h2{font-size:clamp(29px,4vw,43px);font-weight:900}
+    .section-heading p{color:var(--muted);margin-top:12px}
+    .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}
+    .story-copy h2{font-size:clamp(28px,4vw,40px);line-height:1.2;margin-bottom:20px}
+    .story-copy p{color:var(--muted);margin-bottom:15px}
+    .logo-panel{min-height:310px;display:grid;place-items:center;border:1px solid #ed1c2440;border-radius:18px;background:radial-gradient(circle,#ed1c2420,transparent 65%),#101010}
+    .logo-panel img{width:min(65%,230px);filter:drop-shadow(0 0 28px #ed1c2450)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:linear-gradient(145deg,#151515,#0d0d0d);border:1px solid var(--border);border-radius:14px;padding:28px;transition:.25s}
+    .card:hover{transform:translateY(-5px);border-color:#ed1c2499}
+    .icon{width:48px;height:48px;display:grid;place-items:center;border-radius:11px;background:#ed1c241f;color:var(--red);font-size:23px;margin-bottom:18px}
+    .card h3{font-size:19px;margin-bottom:9px}
+    .card p{color:var(--muted);font-size:14px}
+    .roadmap{background:#0e0e0e;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .roadmap-list{max-width:800px;margin:auto;display:grid;gap:14px}
+    .roadmap-item{display:flex;gap:18px;align-items:flex-start;padding:20px;background:#141414;border:1px solid var(--border);border-radius:12px}
+    .number{flex:0 0 38px;height:38px;display:grid;place-items:center;background:#ed1c241f;color:var(--red);border-radius:9px;font-weight:900}
+    .roadmap-item p{color:var(--muted);font-size:14px;margin-top:3px}
+    .cta{padding:65px 28px;text-align:center;border:1px solid #ed1c2440;border-radius:18px;background:linear-gradient(120deg,#ed1c2414,transparent 60%),#101010}
+    .cta h2{font-size:clamp(27px,4vw,40px);margin-bottom:12px}
+    .cta p{color:var(--muted);max-width:650px;margin:0 auto 24px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 23px;border-radius:8px;font-size:14px;font-weight:800;background:var(--red);transition:.2s}
+    .btn:hover{background:#ff3038;transform:translateY(-2px)}
+    footer{padding:32px 0;background:#060606;border-top:1px solid var(--border)}
+    .footer-content{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-copy{color:#777;font-size:13px}
+    .footer-links{display:flex;gap:20px;color:#999;font-size:13px}
+    .footer-links a:hover{color:var(--red)}
+    html[dir="rtl"] body{text-align:right}
+    html[dir="rtl"] h1{letter-spacing:0;line-height:1.4}
+    html[dir="rtl"] .eyebrow{letter-spacing:0}
+    html[dir="rtl"] .hero:after{right:auto;left:-100px}
+    @media(max-width:850px){
+      .nav-links{display:none;position:absolute;top:78px;left:0;right:0;padding:22px 5%;background:#0c0c0c;border-bottom:1px solid #333;flex-direction:column;align-items:flex-start;gap:18px}
+      .nav-links.open{display:flex}.menu-button{display:block}
+      .story-grid{grid-template-columns:1fr;gap:30px}.cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:550px){
+      .navbar{gap:8px}.brand{font-size:16px;gap:7px}.brand img{width:39px;height:39px}
+      .language-select{max-width:112px;font-size:11px}.hero{padding:78px 0}
+      section{padding:65px 0}.cards{grid-template-columns:1fr}
+      .footer-content{flex-direction:column;text-align:center}.footer-links{flex-wrap:wrap;justify-content:center}
+    }
+  </style>
+</head>
+<body data-language="en">
+<header>
+  <div class="container navbar">
+    <a href="index.html" class="brand" aria-label="Raad Client home">
+      <img src="raad-logo.png" alt="Raad Client logo">
+      <div class="brand-name">RAAD<span> CLIENT</span></div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-i18n="home">Home</a>
+      <a href="features.html" data-i18n="features">Features</a>
+      <a href="account.html" data-i18n="account">Account</a>
+      <a href="index.html#performance" data-i18n="performance">Performance</a>
+      <a href="about.html" class="active" data-i18n="about">About Us</a>
+    </nav>
+    <div class="nav-actions">
+      <select class="language-select" id="languageSelect" aria-label="Select language">
+        <option value="en">🇬🇧 English</option><option value="fa">🇮🇷 فارسی</option>
+        <option value="es">🇪🇸 Español</option><option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option><option value="de">🇩🇪 Deutsch</option>
+      </select>
+      <button class="menu-button" id="menuButton" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow" data-i18n="eyebrow">THE IDEA BEHIND RAAD</div>
+      <h1><span data-i18n="titleA">MORE THAN</span><br><span data-i18n="titleB">A CLIENT.</span></h1>
+      <p class="lead" data-i18n="lead">Raad is being built to bring performance, customization and a focused PvP experience together in one place.</p>
+    </div>
+  </section>
+  <section>
+    <div class="container story-grid">
+      <div class="story-copy">
+        <div class="eyebrow" data-i18n="storyEyebrow">OUR STORY</div>
+        <h2 data-i18n="storyTitle">A better way to experience <span class="accent">Minecraft.</span></h2>
+        <p data-i18n="storyP1">Raad Client is an independent project with a clear goal: create a practical Minecraft launcher and a dedicated client experience, with special attention to PvP.</p>
+        <p data-i18n="storyP2">The project is under development. We are building its features step by step and want the experience to remain simple, customizable and accessible.</p>
+      </div>
+      <div class="logo-panel"><img src="raad-logo.png" alt="Raad Client emblem"></div>
+    </div>
+  </section>
+  <section class="roadmap">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow" data-i18n="valuesEyebrow">WHAT GUIDES US</div>
+        <h2 data-i18n="valuesTitle">Our principles</h2>
+        <p data-i18n="valuesDesc">The ideas that guide the decisions behind Raad.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="icon">⚡</div><h3 data-i18n="v1Title">Performance</h3><p data-i18n="v1Desc">Keep the experience responsive and make efficient use of system resources.</p></article>
+        <article class="card"><div class="icon">🎯</div><h3 data-i18n="v2Title">Player-focused</h3><p data-i18n="v2Desc">Prioritize useful features and clear controls instead of unnecessary complexity.</p></article>
+        <article class="card"><div class="icon">🛠</div><h3 data-i18n="v3Title">Customization</h3><p data-i18n="v3Desc">Give players ways to personalize their interface and settings.</p></article>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow" data-i18n="roadmapEyebrow">THE ROAD AHEAD</div>
+        <h2 data-i18n="roadmapTitle">Building Raad, step by step</h2>
+        <p data-i18n="roadmapDesc">Our current direction for the project.</p>
+      </div>
+      <div class="roadmap-list">
+        <div class="roadmap-item"><div class="number">01</div><div><h3 data-i18n="r1Title">Launcher foundation</h3><p data-i18n="r1Desc">Build the launcher structure and prepare support for Minecraft versions and loaders.</p></div></div>
+        <div class="roadmap-item"><div class="number">02</div><div><h3 data-i18n="r2Title">Accounts and settings</h3><p data-i18n="r2Desc">Develop account access and the ability to synchronize supported settings.</p></div></div>
+        <div class="roadmap-item"><div class="number">03</div><div><h3 data-i18n="r3Title">PvP client</h3><p data-i18n="r3Desc">Develop the 1.8.9-focused PvP experience and its customization features.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="cta">
+        <div class="eyebrow" data-i18n="ctaEyebrow">READY TO EXPLORE?</div>
+        <h2 data-i18n="ctaTitle">Discover what Raad is building.</h2>
+        <p data-i18n="ctaDesc">Explore the planned features and follow the development of the project.</p>
+        <a class="btn" href="features.html" data-i18n="ctaButton">EXPLORE FEATURES</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container footer-content">
+    <a href="index.html" class="brand"><img src="raad-logo.png" alt="Raad Client logo"><div class="brand-name">RAAD<span> CLIENT</span></div></a>
+    <div class="footer-copy" data-i18n="copyright">© 2026 Raad Client. All rights reserved.</div>
+    <div class="footer-links"><a href="index.html" data-i18n="home">Home</a><a href="features.html" data-i18n="features">Features</a><a href="account.html" data-i18n="account">Account</a></div>
+  </div>
+</footer>
+<script>
+const translations = {
+en:{
+home:"Home",features:"Features",account:"Account",performance:"Performance",about:"About Us",
+eyebrow:"THE IDEA BEHIND RAAD",titleA:"MORE THAN",titleB:"A CLIENT.",
+lead:"Raad is being built to bring performance, customization and a focused PvP experience together in one place.",
+storyEyebrow:"OUR STORY",storyTitle:'A better way to experience <span class="accent">Minecraft.</span>',
+storyP1:"Raad Client is an independent project with a clear goal: create a practical Minecraft launcher and a dedicated client experience, with special attention to PvP.",
+storyP2:"The project is under development. We are building its features step by step and want the experience to remain simple, customizable and accessible.",
+valuesEyebrow:"WHAT GUIDES US",valuesTitle:"Our principles",valuesDesc:"The ideas that guide the decisions behind Raad.",
+v1Title:"Performance",v1Desc:"Keep the experience responsive and make efficient use of system resources.",
+v2Title:"Player-focused",v2Desc:"Prioritize useful features and clear controls instead of unnecessary complexity.",
+v3Title:"Customization",v3Desc:"Give players ways to personalize their interface and settings.",
+roadmapEyebrow:"THE ROAD AHEAD",roadmapTitle:"Building Raad, step by step",roadmapDesc:"Our current direction for the project.",
+r1Title:"Launcher foundation",r1Desc:"Build the launcher structure and prepare support for Minecraft versions and loaders.",
+r2Title:"Accounts and settings",r2Desc:"Develop account access and the ability to synchronize supported settings.",
+r3Title:"PvP client",r3Desc:"Develop the 1.8.9-focused PvP experience and its customization features.",
+ctaEyebrow:"READY TO EXPLORE?",ctaTitle:"Discover what Raad is building.",ctaDesc:"Explore the planned features and follow the development of the project.",ctaButton:"EXPLORE FEATURES",copyright:"© 2026 Raad Client. All rights reserved."
+},
+fa:{
+home:"خانه",features:"امکانات",account:"حساب کاربری",performance:"عملکرد",about:"درباره ما",
+eyebrow:"ایده پشت رعد",titleA:"فراتر از",titleB:"یک کلاینت.",
+lead:"رعد با هدف ترکیب عملکرد مناسب، شخصی‌سازی و تجربه‌ای متمرکز بر پی‌وی‌پی در یک مجموعه در حال توسعه است.",
+storyEyebrow:"داستان ما",storyTitle:'راهی بهتر برای تجربه <span class="accent">ماینکرفت.</span>',
+storyP1:"رعد کلاینت پروژه‌ای مستقل با هدفی روشن است: ساخت یک لانچر کاربردی ماینکرفت و تجربه‌ای اختصاصی از کلاینت، با توجه ویژه به پی‌وی‌پی.",
+storyP2:"این پروژه هنوز در حال توسعه است. قابلیت‌ها را مرحله‌به‌مرحله می‌سازیم تا تجربه‌ای ساده، قابل شخصی‌سازی و در دسترس فراهم کنیم.",
+valuesEyebrow:"اصول راهنمای ما",valuesTitle:"ارزش‌های ما",valuesDesc:"ایده‌هایی که تصمیم‌های ما در مسیر توسعه رعد را هدایت می‌کنند.",
+v1Title:"عملکرد",v1Desc:"تجربه‌ای روان و واکنش‌گرا با استفاده بهینه از منابع سیستم.",
+v2Title:"تمرکز بر بازیکن",v2Desc:"اولویت دادن به قابلیت‌های کاربردی و کنترل‌های واضح، به‌جای پیچیدگی غیرضروری.",
+v3Title:"شخصی‌سازی",v3Desc:"فراهم کردن امکان شخصی‌سازی رابط کاربری و تنظیمات برای بازیکنان.",
+roadmapEyebrow:"مسیر پیش رو",roadmapTitle:"ساخت رعد، قدم‌به‌قدم",roadmapDesc:"مسیر فعلی توسعه پروژه.",
+r1Title:"پایه‌گذاری لانچر",r1Desc:"ساختار لانچر و آماده‌سازی پشتیبانی از نسخه‌ها و لودرهای مختلف ماینکرفت.",
+r2Title:"حساب‌ها و تنظیمات",r2Desc:"توسعه ورود به حساب کاربری و امکان همگام‌سازی تنظیمات پشتیبانی‌شده.",
+r3Title:"کلاینت پی‌وی‌پی",r3Desc:"توسعه تجربه پی‌وی‌پی با تمرکز بر نسخه ۱.۸.۹ و قابلیت‌های شخصی‌سازی آن.",
+ctaEyebrow:"آماده‌ای بیشتر ببینی؟",ctaTitle:"با مسیر توسعه رعد آشنا شو.",ctaDesc:"قابلیت‌های برنامه‌ریزی‌شده را ببین و روند توسعه پروژه را دنبال کن.",ctaButton:"مشاهده امکانات",copyright:"© ۲۰۲۶ رعد کلاینت. تمامی حقوق محفوظ است."
+},
+es:{
+home:"Inicio",features:"Funciones",account:"Cuenta",performance:"Rendimiento",about:"Sobre nosotros",
+eyebrow:"LA IDEA DETRÁS DE RAAD",titleA:"MÁS QUE",titleB:"UN CLIENTE.",
+lead:"Raad se está desarrollando para reunir rendimiento, personalización y una experiencia PvP centrada en el jugador.",
+storyEyebrow:"NUESTRA HISTORIA",storyTitle:'Una mejor forma de vivir <span class="accent">Minecraft.</span>',
+storyP1:"Raad Client es un proyecto independiente con un objetivo claro: crear un lanzador práctico de Minecraft y una experiencia de cliente dedicada, con especial atención al PvP.",
+storyP2:"El proyecto está en desarrollo. Creamos sus funciones paso a paso para ofrecer una experiencia sencilla, personalizable y accesible.",
+valuesEyebrow:"LO QUE NOS GUÍA",valuesTitle:"Nuestros principios",valuesDesc:"Las ideas que guían las decisiones de Raad.",
+v1Title:"Rendimiento",v1Desc:"Mantener una experiencia fluida y aprovechar los recursos del sistema.",
+v2Title:"Enfoque en el jugador",v2Desc:"Priorizar funciones útiles y controles claros, sin complejidad innecesaria.",
+v3Title:"Personalización",v3Desc:"Ofrecer formas de personalizar la interfaz y los ajustes.",
+roadmapEyebrow:"EL CAMINO POR DELANTE",roadmapTitle:"Construyendo Raad paso a paso",roadmapDesc:"La dirección actual del proyecto.",
+r1Title:"Base del lanzador",r1Desc:"Crear la estructura del lanzador y preparar la compatibilidad con versiones y cargadores.",
+r2Title:"Cuentas y ajustes",r2Desc:"Desarrollar el acceso a cuentas y la sincronización de ajustes compatibles.",
+r3Title:"Cliente PvP",r3Desc:"Desarrollar la experiencia PvP centrada en la versión 1.8.9 y sus opciones de personalización.",
+ctaEyebrow:"¿LISTO PARA EXPLORAR?",ctaTitle:"Descubre lo que está creando Raad.",ctaDesc:"Explora las funciones previstas y sigue el desarrollo del proyecto.",ctaButton:"VER FUNCIONES",copyright:"© 2026 Raad Client. Todos los derechos reservados."
+},
+fr:{
+home:"Accueil",features:"Fonctionnalités",account:"Compte",performance:"Performances",about:"À propos",
+eyebrow:"L'IDÉE DERRIÈRE RAAD",titleA:"PLUS QU'UN",titleB:"CLIENT.",
+lead:"Raad est en cours de développement pour réunir performances, personnalisation et expérience PvP ciblée.",
+storyEyebrow:"NOTRE HISTOIRE",storyTitle:'Une meilleure expérience de <span class="accent">Minecraft.</span>',
+storyP1:"Raad Client est un projet indépendant avec un objectif clair : créer un launcher Minecraft pratique et une expérience client dédiée, avec une attention particulière au PvP.",
+storyP2:"Le projet est en développement. Nous construisons ses fonctionnalités étape par étape pour offrir une expérience simple, personnalisable et accessible.",
+valuesEyebrow:"NOS PRINCIPES",valuesTitle:"Nos valeurs",valuesDesc:"Les idées qui guident les décisions de Raad.",
+v1Title:"Performances",v1Desc:"Offrir une expérience réactive et utiliser efficacement les ressources du système.",
+v2Title:"Centré sur le joueur",v2Desc:"Privilégier les fonctions utiles et les commandes claires, sans complexité inutile.",
+v3Title:"Personnalisation",v3Desc:"Permettre aux joueurs de personnaliser leur interface et leurs paramètres.",
+roadmapEyebrow:"LA SUITE",roadmapTitle:"Construire Raad, étape par étape",roadmapDesc:"L'orientation actuelle du projet.",
+r1Title:"Fondations du launcher",r1Desc:"Créer la structure du launcher et préparer la prise en charge des versions et chargeurs Minecraft.",
+r2Title:"Comptes et paramètres",r2Desc:"Développer l'accès aux comptes et la synchronisation des paramètres pris en charge.",
+r3Title:"Client PvP",r3Desc:"Développer l'expérience PvP axée sur la version 1.8.9 et ses options de personnalisation.",
+ctaEyebrow:"PRÊT À EXPLORER ?",ctaTitle:"Découvrez ce que Raad prépare.",ctaDesc:"Explorez les fonctionnalités prévues et suivez le développement du projet.",ctaButton:"VOIR LES FONCTIONNALITÉS",copyright:"© 2026 Raad Client. Tous droits réservés."
+},
+it:{
+home:"Home",features:"Funzionalità",account:"Account",performance:"Prestazioni",about:"Chi siamo",
+eyebrow:"L'IDEA DIETRO RAAD",titleA:"PIÙ DI",titleB:"UN CLIENT.",
+lead:"Raad è in fase di sviluppo per riunire prestazioni, personalizzazione e un'esperienza PvP dedicata.",
+storyEyebrow:"LA NOSTRA STORIA",storyTitle:'Un modo migliore di vivere <span class="accent">Minecraft.</span>',
+storyP1:"Raad Client è un progetto indipendente con un obiettivo chiaro: creare un launcher Minecraft pratico e un'esperienza client dedicata, con particolare attenzione al PvP.",
+storyP2:"Il progetto è in sviluppo. Realizziamo le funzionalità passo dopo passo per offrire un'esperienza semplice, personalizzabile e accessibile.",
+valuesEyebrow:"COSA CI GUIDA",valuesTitle:"I nostri principi",valuesDesc:"Le idee che guidano le decisioni di Raad.",
+v1Title:"Prestazioni",v1Desc:"Mantenere un'esperienza fluida e usare le risorse del sistema in modo efficiente.",
+v2Title:"Al centro il giocatore",v2Desc:"Dare priorità a funzioni utili e controlli chiari, evitando complessità inutili.",
+v3Title:"Personalizzazione",v3Desc:"Offrire ai giocatori modi per personalizzare interfaccia e impostazioni.",
+roadmapEyebrow:"IL PERCORSO FUTURO",roadmapTitle:"Costruire Raad, passo dopo passo",roadmapDesc:"La direzione attuale del progetto.",
+r1Title:"Fondamenta del launcher",r1Desc:"Creare la struttura del launcher e preparare il supporto per versioni e loader Minecraft.",
+r2Title:"Account e impostazioni",r2Desc:"Sviluppare l'accesso agli account e la sincronizzazione delle impostazioni supportate.",
+r3Title:"Client PvP",r3Desc:"Sviluppare l'esperienza PvP incentrata sulla versione 1.8.9 e sulle sue opzioni di personalizzazione.",
+ctaEyebrow:"PRONTO A ESPLORARE?",ctaTitle:"Scopri cosa sta costruendo Raad.",ctaDesc:"Esplora le funzionalità previste e segui lo sviluppo del progetto.",ctaButton:"SCOPRI LE FUNZIONALITÀ",copyright:"© 2026 Raad Client. Tutti i diritti riservati."
+},
+de:{
+home:"Startseite",features:"Funktionen",account:"Konto",performance:"Leistung",about:"Über uns",
+eyebrow:"DIE IDEE HINTER RAAD",titleA:"MEHR ALS",titleB:"EIN CLIENT.",
+lead:"Raad wird entwickelt, um Leistung, Anpassbarkeit und ein fokussiertes PvP-Erlebnis an einem Ort zu vereinen.",
+storyEyebrow:"UNSERE GESCHICHTE",storyTitle:'Minecraft besser <span class="accent">erleben.</span>',
+storyP1:"Raad Client ist ein unabhängiges Projekt mit einem klaren Ziel: einen praktischen Minecraft-Launcher und ein eigenes Client-Erlebnis mit besonderem Fokus auf PvP zu entwickeln.",
+storyP2:"Das Projekt befindet sich in Entwicklung. Wir erstellen die Funktionen Schritt für Schritt und möchten ein einfaches, anpassbares und zugängliches Erlebnis bieten.",
+valuesEyebrow:"WAS UNS LEITET",valuesTitle:"Unsere Prinzipien",valuesDesc:"Die Ideen hinter den Entscheidungen für Raad.",
+v1Title:"Leistung",v1Desc:"Ein flüssiges Erlebnis und eine effiziente Nutzung der Systemressourcen.",
+v2Title:"Spielerorientiert",v2Desc:"Nützliche Funktionen und klare Steuerung statt unnötiger Komplexität.",
+v3Title:"Anpassbarkeit",v3Desc:"Spielern Möglichkeiten zur Anpassung von Oberfläche und Einstellungen bieten.",
+roadmapEyebrow:"DER WEITERE WEG",roadmapTitle:"Raad Schritt für Schritt entwickeln",roadmapDesc:"Die aktuelle Ausrichtung des Projekts.",
+r1Title:"Grundlage des Launchers",r1Desc:"Die Launcher-Struktur erstellen und Unterstützung für Minecraft-Versionen und Loader vorbereiten.",
+r2Title:"Konten und Einstellungen",r2Desc:"Kontozugriff und Synchronisierung unterstützter Einstellungen entwickeln.",
+r3Title:"PvP-Client",r3Desc:"Das auf Version 1.8.9 ausgerichtete PvP-Erlebnis und seine Anpassungsfunktionen entwickeln.",
+ctaEyebrow:"BEREIT ZUM ENTDECKEN?",ctaTitle:"Entdecke, woran Raad arbeitet.",ctaDesc:"Sieh dir die geplanten Funktionen an und verfolge die Entwicklung des Projekts.",ctaButton:"FUNKTIONEN ANSEHEN",copyright:"© 2026 Raad Client. Alle Rechte vorbehalten."
+}
+};
+const select=document.getElementById("languageSelect");
+function changeLanguage(lang){
+  const chosen=translations[lang]?lang:"en",dict=translations[chosen];
+  document.documentElement.lang=chosen;
+  document.documentElement.dir=chosen==="fa"?"rtl":"ltr";
+  document.body.dataset.language=chosen;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const value=dict[el.dataset.i18n];
+    if(value!==undefined){
+      if(["storyTitle"].includes(el.dataset.i18n)) el.innerHTML=value;
+      else el.textContent=value;
+    }
+  });
+  select.value=chosen;
+  try{localStorage.setItem("raad-language",chosen)}catch(e){}
+}
+select.addEventListener("change",e=>changeLanguage(e.target.value));
+const nav=document.getElementById("navLinks");
+document.getElementById("menuButton").addEventListener("click",()=>nav.classList.toggle("open"));
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+let saved="en";try{saved=localStorage.getItem("raad-language")||"en"}catch(e){}
+changeLanguage(saved);
+</script>
+</body>
+</html>
