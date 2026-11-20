@@ -73,6 +73,7 @@
     .btn-primary:hover { background:#ff3038; transform:translateY(-3px); }
     .btn-outline { border:1px solid #444; color:#fff; background:#ffffff08; }
     .btn-outline:hover { border-color:var(--red); color:var(--red); }
+    .dashboard-btn { padding:9px 15px; font-size:12px; white-space:nowrap; }
 
     .hero {
       min-height:660px; display:flex; align-items:center; position:relative; overflow:hidden;
@@ -190,9 +191,8 @@
       <nav class="nav-links" id="navLinks">
         <a href="#home" data-i18n="navHome">Home</a>
         <a href="features.html" data-i18n="navFeatures">Features</a>
-        <a href="account.html">Account</a>
         <a href="#performance" data-i18n="navPerformance">Performance</a>
-        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="about.html" data-i18n="navAbout">About</a>
       </nav>
 
       <div class="nav-actions">
@@ -204,6 +204,7 @@
           <option value="it">🇮🇹 Italiano</option>
           <option value="de">🇩🇪 Deutsch</option>
         </select>
+        <a href="account.html" class="btn btn-primary dashboard-btn" data-i18n="navDashboard">DASHBOARD</a>
         <button class="menu-button" id="menuButton" aria-label="Open menu">☰</button>
       </div>
     </div>
@@ -299,7 +300,7 @@
   <script>
     const translations = {
       en: {
-        navHome:"Home",navFeatures:"Features",navPerformance:"Performance",navAbout:"About",
+        navHome:"Home",navDashboard:"DASHBOARD",navFeatures:"Features",navPerformance:"Performance",navAbout:"About",
         heroEyebrow:"THE NEXT GENERATION OF PVP",heroTitle1:"PLAY",heroTitle2:"WITHOUT",heroTitle3:"LIMITS.",
         heroDescription:"Meet Raad Client. A new Minecraft experience focused on performance, customization and competitive PvP.",
         exploreButton:"EXPLORE RAAD",learnButton:"LEARN MORE",heroTag:"BUILT FOR THE NEXT LEVEL.",
@@ -320,7 +321,7 @@
         copyright:"© 2026 Raad Client. All rights reserved.",footerHome:"Home",footerFeatures:"Features",footerAbout:"About"
       },
       fa: {
-        navHome:"خانه",navFeatures:"امکانات",navPerformance:"عملکرد",navAbout:"درباره ما",
+        navHome:"خانه",navDashboard:"ورود به داشبورد",navFeatures:"امکانات",navPerformance:"عملکرد",navAbout:"درباره ما",
         heroEyebrow:"نسل جدید پی‌وی‌پی",heroTitle1:"بازی کن",heroTitle2:"بدون",heroTitle3:"محدودیت.",
         heroDescription:"با رعد کلاینت آشنا شو؛ تجربه‌ای جدید از ماینکرفت با تمرکز بر عملکرد، شخصی‌سازی و پی‌وی‌پی رقابتی.",
         exploreButton:"کشف رعد",learnButton:"بیشتر بدانید",heroTag:"برای سطحی بالاتر ساخته شده است.",
@@ -341,7 +342,7 @@
         copyright:"© ۲۰۲۶ رعد کلاینت. تمامی حقوق محفوظ است.",footerHome:"خانه",footerFeatures:"امکانات",footerAbout:"درباره ما"
       },
       es: {
-        navHome:"Inicio",navFeatures:"Funciones",navPerformance:"Rendimiento",navAbout:"Acerca de",
+        navHome:"Inicio",navDashboard:"PANEL",navFeatures:"Funciones",navPerformance:"Rendimiento",navAbout:"Acerca de",
         heroEyebrow:"LA NUEVA GENERACIÓN DEL PVP",heroTitle1:"JUEGA",heroTitle2:"SIN",heroTitle3:"LÍMITES.",
         heroDescription:"Conoce Raad Client. Una nueva experiencia de Minecraft centrada en el rendimiento, la personalización y el PvP competitivo.",
         exploreButton:"EXPLORAR RAAD",learnButton:"SABER MÁS",heroTag:"CREADO PARA EL SIGUIENTE NIVEL.",
@@ -362,7 +363,7 @@
         copyright:"© 2026 Raad Client. Todos los derechos reservados.",footerHome:"Inicio",footerFeatures:"Funciones",footerAbout:"Acerca de"
       },
       fr: {
-        navHome:"Accueil",navFeatures:"Fonctionnalités",navPerformance:"Performances",navAbout:"À propos",
+        navHome:"Accueil",navDashboard:"TABLEAU DE BORD",navFeatures:"Fonctionnalités",navPerformance:"Performances",navAbout:"À propos",
         heroEyebrow:"LA NOUVELLE GÉNÉRATION DU PVP",heroTitle1:"JOUE",heroTitle2:"SANS",heroTitle3:"LIMITES.",
         heroDescription:"Découvrez Raad Client. Une nouvelle expérience Minecraft axée sur les performances, la personnalisation et le PvP compétitif.",
         exploreButton:"DÉCOUVRIR RAAD",learnButton:"EN SAVOIR PLUS",heroTag:"CONÇU POUR PASSER AU NIVEAU SUPÉRIEUR.",
@@ -383,7 +384,7 @@
         copyright:"© 2026 Raad Client. Tous droits réservés.",footerHome:"Accueil",footerFeatures:"Fonctionnalités",footerAbout:"À propos"
       },
       it: {
-        navHome:"Home",navFeatures:"Funzionalità",navPerformance:"Prestazioni",navAbout:"Chi siamo",
+        navHome:"Home",navDashboard:"DASHBOARD",navFeatures:"Funzionalità",navPerformance:"Prestazioni",navAbout:"Chi siamo",
         heroEyebrow:"LA NUOVA GENERAZIONE DEL PVP",heroTitle1:"GIOCA",heroTitle2:"SENZA",heroTitle3:"LIMITI.",
         heroDescription:"Scopri Raad Client. Una nuova esperienza Minecraft incentrata su prestazioni, personalizzazione e PvP competitivo.",
         exploreButton:"SCOPRI RAAD",learnButton:"SCOPRI DI PIÙ",heroTag:"CREATO PER IL LIVELLO SUCCESSIVO.",
@@ -404,7 +405,7 @@
         copyright:"© 2026 Raad Client. Tutti i diritti riservati.",footerHome:"Home",footerFeatures:"Funzionalità",footerAbout:"Chi siamo"
       },
       de: {
-        navHome:"Startseite",navFeatures:"Funktionen",navPerformance:"Leistung",navAbout:"Über uns",
+        navHome:"Startseite",navDashboard:"DASHBOARD",navFeatures:"Funktionen",navPerformance:"Leistung",navAbout:"Über uns",
         heroEyebrow:"DIE NÄCHSTE GENERATION VON PVP",heroTitle1:"SPIELE",heroTitle2:"OHNE",heroTitle3:"GRENZEN.",
         heroDescription:"Lerne Raad Client kennen. Ein neues Minecraft-Erlebnis mit Fokus auf Leistung, Anpassung und kompetitives PvP.",
         exploreButton:"RAAD ENTDECKEN",learnButton:"MEHR ERFAHREN",heroTag:"FÜR DAS NÄCHSTE LEVEL ENTWICKELT.",
